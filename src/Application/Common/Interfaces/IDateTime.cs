@@ -1,4 +1,5 @@
 ﻿using System;
+using Taxes.Domain.Enums;
 
 namespace Taxes.Application.Common.Interfaces
 {

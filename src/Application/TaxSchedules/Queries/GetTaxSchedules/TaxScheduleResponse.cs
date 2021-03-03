@@ -16,6 +16,10 @@ namespace Taxes.Application.TaxSchedules.Queries.GetTaxSchedules
 
         public DateTime StartDate { get; set; }
 
+        public DateTime EndDate { get; set; }
+
+        public double Value { get; set; }
+
         [JsonConverter(typeof(StringEnumConverter))]
         public TimePeriod TimePeriod { get; set; }
 

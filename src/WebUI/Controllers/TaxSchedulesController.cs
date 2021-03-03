@@ -34,7 +34,7 @@ namespace Taxes.WebUI.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult> Update(int id, UpdateTaxScheduleCommand command)
+        public async Task<ActionResult> Update(int id, [FromBody] UpdateTaxScheduleCommand command)
         {
             if (id != command.Id)
             {

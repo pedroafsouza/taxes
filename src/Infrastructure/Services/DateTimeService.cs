@@ -1,5 +1,6 @@
 ﻿using Taxes.Application.Common.Interfaces;
 using System;
+using Taxes.Domain.Enums;
 
 namespace Taxes.Infrastructure.Services
 {

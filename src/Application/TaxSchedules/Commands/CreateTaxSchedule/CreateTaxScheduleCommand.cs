@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 using Taxes.Domain.Enums;
 using System;
 using System.Linq;
-using System.Text.Json.Serialization;
-using Newtonsoft.Json.Converters;
+using Taxes.Application.Common.Extensions;
 
 namespace Taxes.Application.TaxSchedules.Commands.CreateTaxSchedule
 {
@@ -18,6 +17,8 @@ namespace Taxes.Application.TaxSchedules.Commands.CreateTaxSchedule
         public DateTime StartDate { get; set; }
 
         public TimePeriod TimePeriod { get; set; }
+
+        public double Value { get; set; }
     }
 
     public class CreateTaxScheduleCommandHandler : IRequestHandler<CreateTaxScheduleCommand, int>
@@ -33,8 +34,10 @@ namespace Taxes.Application.TaxSchedules.Commands.CreateTaxSchedule
         {
             var entity = new TaxSchedule
             {
-                StartDate = request.StartDate,
+                StartDate = request.StartDate.Date,
+                EndDate = request.StartDate.Date.EndDateFromTimePeriod(request.TimePeriod),
                 TimePeriod = request.TimePeriod,
+                Value = request.Value,
                 Municipality = _context.Municipalities.FirstOrDefault(municipality => municipality.Id == request.MunicipalityId)
             };
 

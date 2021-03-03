@@ -12,7 +12,13 @@ namespace Taxes.WebUI.Controllers
     public class MunicipalitiesController : ApiControllerBase
     {
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<MunicipalityResponse>>> GetAllAsync([FromQuery] GetAllMunicipalitiesQuery query)
+        public async Task<ActionResult<IEnumerable<MunicipalityResponse>>> GetAllAsync()
+        {
+            return Ok(await Mediator.Send(new GetAllMunicipalitiesQuery()));
+        }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<IEnumerable<MunicipalityResponse>>> GetByIdAsync([FromQuery] GetAllMunicipalitiesQuery query)
         {
             return Ok(await Mediator.Send(query));
         }

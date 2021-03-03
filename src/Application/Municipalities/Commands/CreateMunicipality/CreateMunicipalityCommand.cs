@@ -19,7 +19,7 @@ namespace Taxes.Application.Municipalities.Commands.CreateMunicipality
         {
             _context = context;
         }
-
+        
         public async Task<int> Handle(CreateMunicipalityCommand request, CancellationToken cancellationToken)
         {
             var entity = new Municipality
@@ -28,9 +28,7 @@ namespace Taxes.Application.Municipalities.Commands.CreateMunicipality
             };
 
             _context.Municipalities.Add(entity);
-
             await _context.SaveChangesAsync(cancellationToken);
-
             return entity.Id;
         }
     }
