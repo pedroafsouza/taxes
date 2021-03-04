@@ -1,7 +1,7 @@
 using Taxes.Application;
 using Taxes.Infrastructure;
 using Taxes.Infrastructure.Persistence;
-using Taxes.WebUI.Filters;
+using Taxes.Api.Filters;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -12,7 +12,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using System.Text.Json.Serialization;
 
-namespace Taxes.WebUI
+namespace Taxes.Api
 {
     public class Startup
     {

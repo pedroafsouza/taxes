@@ -1,5 +1,5 @@
 ﻿using Taxes.Infrastructure.Persistence;
-using Taxes.WebUI;
+using Taxes.Api;
 using MediatR;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -34,7 +34,7 @@ public class Testing
 
         services.AddSingleton(Mock.Of<IWebHostEnvironment>(w =>
             w.EnvironmentName == "Development" &&
-            w.ApplicationName == "Taxes.WebUI"));
+            w.ApplicationName == "Taxes.Api"));
 
         services.AddLogging();
 

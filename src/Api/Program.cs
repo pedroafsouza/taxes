@@ -6,7 +6,7 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Threading.Tasks;
 
-namespace Taxes.WebUI
+namespace Taxes.Api
 {
     public class Program
     {

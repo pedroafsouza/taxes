@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Taxes.WebUI.Controllers
+namespace Taxes.Api.Controllers
 {
     [ApiController]
     public abstract class ApiControllerBase : ControllerBase

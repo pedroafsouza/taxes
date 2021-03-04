@@ -6,7 +6,7 @@ using Taxes.Application.Municipalities.Commands.UpdateMunicipality;
 using Taxes.Application.Municipalities.Queries;
 using Taxes.Application.Municipalities.Commands.DeleteMunicipality;
 
-namespace Taxes.WebUI.Controllers
+namespace Taxes.Api.Controllers
 {
     [Route("api/municipalities")]
     public class MunicipalitiesController : ApiControllerBase

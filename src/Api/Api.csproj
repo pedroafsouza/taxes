@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <RootNamespace>Taxes.WebUI</RootNamespace>
-    <AssemblyName>Taxes.WebUI</AssemblyName>
+    <RootNamespace>Taxes.Api</RootNamespace>
+    <AssemblyName>Taxes.Api</AssemblyName>
     <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
     <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
     <IsPackable>true</IsPackable>

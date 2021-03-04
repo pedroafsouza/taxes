@@ -5,7 +5,7 @@ using System;
 using Taxes.Application.TaxSchedules.Queries.GetTaxSchedules;
 using Taxes.Application.TaxSchedules.Queries.GetTaxScheduleSummary;
 
-namespace Taxes.WebUI.Controllers
+namespace Taxes.Api.Controllers
 {
     [Route("api/taxes/")]
     public class TaxesController : ApiControllerBase

@@ -8,7 +8,7 @@ using Taxes.Application.TaxSchedules.Commands.CreateTaxSchedule;
 using Taxes.Application.TaxSchedules.Commands.UpdateTaxSchedule;
 using Taxes.Application.TaxSchedules.Commands.DeleteTaxSchedule;
 
-namespace Taxes.WebUI.Controllers
+namespace Taxes.Api.Controllers
 {
     [Route("api/municipalities/{MunicipalityId:int}/taxschedules")]
     public class TaxSchedulesController : ApiControllerBase

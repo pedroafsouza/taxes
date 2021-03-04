@@ -1,24 +1,42 @@
-version: "3.6"
+version: '3.6'
+
+networks:
+  taxes_network:
+    driver: bridge
 
 services:
+  webui:
+    image: taxes_api
+    build:
+      context: .
+      dockerfile: src/Api/Dockerfile
+    environment:
+      - "ConnectionStrings__DefaultConnection=Host=postgres_image;Database=taxes_db;Username=taxes;Password=changeme"
+    ports:
+      - "5000:5000"
+      - "5001:5001"
+    depends_on:
+      - postgres
+    networks:
+      - taxes_network      
+    restart: on-failure
+
   postgres:
     container_name: postgres_container
-    image: postgres
+    image: postgres:latest
     environment:
-      POSTGRES_USER: ${POSTGRES_USER:-postgres}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-changeme}
+      POSTGRES_USER: taxes
+      POSTGRES_PASSWORD: changeme
       PGDATA: /data/postgres
+      POSTGRES_DB: "taxes_db"
     volumes:
       - postgres:/data/postgres
     ports:
       - "5432:5432"
     networks:
-      - postgres
+      - taxes_network
     restart: unless-stopped
 
-networks:
-  postgres:
-    driver: bridge
 
 volumes:
-  postgres:
+  postgres:    
