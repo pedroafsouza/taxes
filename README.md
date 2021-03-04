@@ -24,7 +24,7 @@ Access the webpage from any browser:
 
 All documentation necessary for the endpoints should be in the swagger page.
 
-![alt text](https://github.com/pedroafsouza/taxes/blob/main/Imgs/swagger.png?raw=true)
+![alt text](https://github.com/pedroafsouza/taxes/blob/main/assets/swagger.png?raw=true)
 
 ## Architecture
 
