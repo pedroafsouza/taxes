@@ -11,7 +11,8 @@ services:
       context: .
       dockerfile: src/Api/Dockerfile
     environment:
-      - "ConnectionStrings__DefaultConnection=Host=postgres_image;Database=taxes_db;Username=taxes;Password=changeme"
+      - "ConnectionStrings:DefaultConnection=Host=postgres;Database=taxes_db;Username=taxes;Password=changeme;port=5432;"
+      - ASPNETCORE_ENVIRONMENT=Development
     ports:
       - "5000:5000"
       - "5001:5001"
@@ -20,6 +21,8 @@ services:
     networks:
       - taxes_network      
     restart: on-failure
+    volumes:
+      - ~/.aspnet/https:/https:ro
 
   postgres:
     container_name: postgres_container
@@ -27,10 +30,9 @@ services:
     environment:
       POSTGRES_USER: taxes
       POSTGRES_PASSWORD: changeme
-      PGDATA: /data/postgres
-      POSTGRES_DB: "taxes_db"
+      PGDATA: /data/postgres1
     volumes:
-      - postgres:/data/postgres
+      - postgres:/data/postgres1
     ports:
       - "5432:5432"
     networks:

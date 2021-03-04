@@ -19,15 +19,8 @@ namespace Taxes.Infrastructure
                     b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName)));
 
             services.AddScoped<IApplicationDbContext>(provider => provider.GetService<ApplicationDbContext>());
-
             services.AddScoped<IDomainEventService, DomainEventService>();
-
             services.AddTransient<IDateTime, DateTimeService>();
-
-            services.AddAuthorization(options =>
-            {
-                options.AddPolicy("CanPurge", policy => policy.RequireRole("Administrator"));
-            });
 
             return services;
         }

@@ -28,12 +28,8 @@ namespace Taxes.Api
         {
             services.AddApplication();
             services.AddInfrastructure(Configuration);
-
             services.AddDatabaseDeveloperPageExceptionFilter();
-
             services.AddHttpContextAccessor();
-
-
 
             services.AddHealthChecks()
                 .AddDbContextCheck<ApplicationDbContext>();
@@ -73,26 +69,17 @@ namespace Taxes.Api
             {
                 app.UseExceptionHandler("/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
+                //app.UseHsts();
             }
 
             app.UseHealthChecks("/health");
-            app.UseHttpsRedirection();
-            app.UseStaticFiles();
-            if (!env.IsDevelopment())
-            {
-                app.UseSpaStaticFiles();
-            }
-
             app.UseRouting();
 
-            app.UseRouting();
             // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();
 
             app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Taxes V1"));
 
-            app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
