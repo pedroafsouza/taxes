@@ -1,5 +1,4 @@
-﻿using NUnit.Framework;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
 namespace Taxes.Application.IntegrationTests
 {
@@ -7,7 +6,6 @@ namespace Taxes.Application.IntegrationTests
 
     public class TestBase
     {
-        [SetUp]
         public async Task TestSetUp()
         {
             await ResetState();

@@ -24,7 +24,7 @@ namespace Taxes.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<int>> Create(CreateMunicipalityCommand command)
+        public async Task<ActionResult<MunicipalityResponse>> Create(CreateMunicipalityCommand command)
         {
             return await Mediator.Send(command);
         }
@@ -32,12 +32,7 @@ namespace Taxes.Api.Controllers
         [HttpPut("{id}")]
         public async Task<ActionResult> Update(int id, UpdateMunicipalityCommand command)
         {
-            if (id != command.Id)
-            {
-                return BadRequest();
-            }
-
-            await Mediator.Send(command);
+            await Mediator.Send(new UpdateMunicipalityCommand { Id = id, Name = command.Name });
 
             return NoContent();
         }

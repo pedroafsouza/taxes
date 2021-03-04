@@ -4,11 +4,13 @@ using Taxes.Domain.Entities;
 using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace Taxes.Application.Municipalities.Commands.UpdateMunicipality
 {
     public class UpdateMunicipalityCommand : IRequest
     {
+        [JsonIgnore]
         public int Id { get; set; }
 
         public string Name { get; set; }
