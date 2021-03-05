@@ -34,8 +34,6 @@ namespace Taxes.Application.Common.Behaviours
                 var requestName = typeof(TRequest).Name;
                 var userName = string.Empty;
 
-
-
                 _logger.LogWarning("Taxes Long Running Request: {Name} ({ElapsedMilliseconds} milliseconds) {@UserName} {@Request}",
                     requestName, elapsedMilliseconds, userName, request);
             }

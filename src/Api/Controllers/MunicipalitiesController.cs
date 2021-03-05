@@ -18,9 +18,9 @@ namespace Taxes.Api.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<IEnumerable<MunicipalityResponse>>> GetByIdAsync([FromQuery] GetAllMunicipalitiesQuery query)
+        public async Task<ActionResult<IEnumerable<MunicipalityResponse>>> GetByIdAsync(int id)
         {
-            return Ok(await Mediator.Send(query));
+            return Ok(await Mediator.Send(new GetAllMunicipalitiesQuery { MunicipalityId = id }));
         }
 
         [HttpPost]

@@ -23,26 +23,17 @@ namespace Taxes.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<int>> Create(CreateTaxScheduleCommand command)
+        public async Task<ActionResult<TaxScheduleResponse>> Create(CreateTaxScheduleCommand command)
         {
-            if (MunicipalityId != command.MunicipalityId)
-            {
-                return BadRequest();
-            }
-
+            command.MunicipalityId = MunicipalityId;
             return await Mediator.Send(command);
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult> Update(int id, [FromBody] UpdateTaxScheduleCommand command)
+        public async Task<ActionResult> Update(int id, UpdateTaxScheduleCommand command)
         {
-            if (id != command.Id)
-            {
-                return BadRequest();
-            }
-
+            command.Id = id;
             await Mediator.Send(command);
-
             return NoContent();
         }
 

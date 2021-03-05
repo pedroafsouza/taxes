@@ -7,21 +7,17 @@ using System.Threading.Tasks;
 using System;
 using Taxes.Domain.Enums;
 using System.Text.Json.Serialization;
-using Newtonsoft.Json.Converters;
 using Taxes.Application.Common.Extensions;
+using Newtonsoft.Json.Converters;
 
 namespace Taxes.Application.TaxSchedules.Commands.UpdateTaxSchedule
 {
     public class UpdateTaxScheduleCommand : IRequest
     {
+        [JsonIgnore]
         public int Id { get; set; }
 
-        public DateTime StartDate { get; set; }
-
         public double Value { get; set; }
-
-        [JsonConverter(typeof(StringEnumConverter))]
-        public TimePeriod TimePeriod { get; set; }
     }
 
     public class UpdateTaxScheduleCommandHandler : IRequestHandler<UpdateTaxScheduleCommand>
@@ -42,9 +38,6 @@ namespace Taxes.Application.TaxSchedules.Commands.UpdateTaxSchedule
                 throw new NotFoundException(nameof(TaxSchedule), request.Id);
             }
 
-            entity.StartDate = request.StartDate;
-            entity.EndDate = request.StartDate.Date.EndDateFromTimePeriod(request.TimePeriod);
-            entity.TimePeriod = request.TimePeriod;
             entity.Value = request.Value;
 
             await _context.SaveChangesAsync(cancellationToken);

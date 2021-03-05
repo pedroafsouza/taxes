@@ -7,11 +7,15 @@ using Taxes.Domain.Enums;
 using System;
 using System.Linq;
 using Taxes.Application.Common.Extensions;
+using Taxes.Application.TaxSchedules.Queries.GetTaxSchedules;
+using AutoMapper;
+using System.Text.Json.Serialization;
 
 namespace Taxes.Application.TaxSchedules.Commands.CreateTaxSchedule
 {
-    public class CreateTaxScheduleCommand : IRequest<int>
+    public class CreateTaxScheduleCommand : IRequest<TaxScheduleResponse>
     {
+        [JsonIgnore]
         public Int32 MunicipalityId { get; set; }
 
         public DateTime StartDate { get; set; }
@@ -21,16 +25,18 @@ namespace Taxes.Application.TaxSchedules.Commands.CreateTaxSchedule
         public double Value { get; set; }
     }
 
-    public class CreateTaxScheduleCommandHandler : IRequestHandler<CreateTaxScheduleCommand, int>
+    public class CreateTaxScheduleCommandHandler : IRequestHandler<CreateTaxScheduleCommand, TaxScheduleResponse>
     {
         private readonly IApplicationDbContext _context;
+        private readonly IMapper _mapper;
 
-        public CreateTaxScheduleCommandHandler(IApplicationDbContext context)
+        public CreateTaxScheduleCommandHandler(IApplicationDbContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
-        public async Task<int> Handle(CreateTaxScheduleCommand request, CancellationToken cancellationToken)
+        public async Task<TaxScheduleResponse> Handle(CreateTaxScheduleCommand request, CancellationToken cancellationToken)
         {
             var entity = new TaxSchedule
             {
@@ -45,7 +51,7 @@ namespace Taxes.Application.TaxSchedules.Commands.CreateTaxSchedule
 
             await _context.SaveChangesAsync(cancellationToken);
 
-            return entity.Id;
+            return _mapper.Map<TaxScheduleResponse>(entity);
         }
     }
 }

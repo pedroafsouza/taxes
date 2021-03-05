@@ -1,6 +1,6 @@
 ## Taxes
 
-This solutions implements a minimal Tax schdules via web api.
+This solutions implements a minimal Tax schedules via web api.
 
 ## Usage
 
@@ -28,7 +28,7 @@ All documentation necessary for the endpoints should be in the swagger page.
 
 ## Architecture
 
-The architecture is simple, the client sends a message to controllers and the controllers publish the message for RabitMQ that later on is capable to process every message and perform a calculation.
+The architecture is simple, the client sends a message to controllers and the controllers uses a Postgre database to persist data.
 
 
 ## Overview

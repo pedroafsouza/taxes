@@ -4,7 +4,7 @@ using Taxes.Domain.Entities;
 using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Taxes.Application.Municipalities.Commands.UpdateMunicipality
 {
