@@ -47,13 +47,14 @@ This layer contains classes for accessing external resources such as file system
 
 ### webapi
 
-This layer is a single page application based on Angular 10 and ASP.NET Core 5. This layer depends on both the Application and Infrastructure layers, however, the dependency on Infrastructure is only to support dependency injection. Therefore only *Startup.cs* should reference Infrastructure.
+This layer is a webapi that allow clients to call rest endpoints. This layer depends on both the Application and Infrastructure layers, however, the dependency on Infrastructure is only to support dependency injection. Therefore only Startup.cs should reference Infrastructure.
 
 
 ## Acknowledgments of problems
 
 - I would introduce a better logger platform for the project like logstash or kibana.
 - I would never use passwords in the code as I have done here. Instead, I would setup using builds like github actions, azureDevops actions and pass it as environment variables.
+- If I more times, I would do some improvements on my integration tests.
 
 ## License
 
