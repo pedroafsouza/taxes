@@ -10,7 +10,7 @@ With [docker](https://docker.com/) installed, run to build:
 
 ## Why?
 
-The project was created as a part of the interview process for Dansk Bank. It aims to simulate some daily activities of a sofware development in the company.
+It aims to simulate some daily activities of a sofware development in the company.
 
 ## Running swagger
 
